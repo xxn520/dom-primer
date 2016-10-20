@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>addOrInsert</title>
+</head>
+<body>
+	
+	<p>你好</p>
+
+	<ul>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+
+	<script>
+		// 添加到最后一个子节点的后面，Node 上
+		let p = document.querySelector('p')
+		let element = document.createElement('strong')
+		let textNode = document.createTextNode('年轻人')
+
+		element.appendChild(textNode)
+		p.appendChild(element)
+
+		// 第一个参数是要插入的元素，第二个参数是插到哪个元素前
+		// 如果省略第二个参数则和 appendChild 一样
+		// Node 上
+		let ul = document.querySelector('ul')
+		let li = document.createElement('li')
+		let textNode1 = document.createTextNode('1')
+
+		li.appendChild(textNode1)
+		ul.insertBefore(li, ul.firstChild)
+
+		// DOM4 在 Element 上加入了更多操作函数
+		// append、before、after、prepend
+	</script>
+	
+</body>
+</html>

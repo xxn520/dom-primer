@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>nodeList</title>
+</head>
+<body>
+	<!-- nodeList -->
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+
+	<script>
+		let ulChilds = document.querySelector('ul').childNodes
+
+		[].forEach.call(ulChilds, function(value, index, arr) {
+			console.log(value)
+		})
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cloneNode</title>
+</head>
+<body>
+
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	
+	<script>
+		// 传入 true 才会克隆所有子节点，默认为 false
+		// 通过 addEventListener 或 node.click 添加的事件不会克隆
+		// 导致 id 重复 
+		let cloneUl1 = document.querySelector('ul').cloneNode(true)
+		let cloneUl2 = document.querySelector('ul').cloneNode()
+
+		console.log(cloneUl1.constructor)
+		console.log(cloneUl1.innerHTML)
+
+		console.log('---------华丽的分割线----------')
+
+		console.log(cloneUl2.constructor)
+		console.log(cloneUl2.innerHTML)
+
+	</script>
+
+</body>
+</html>

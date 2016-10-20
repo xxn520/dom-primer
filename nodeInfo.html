@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>nodeInfo</title>
+</head>
+<body>
+	<a href="javascript:void(0)">Hi</a>
+
+	<script>
+		Node.prototype.info = function() {
+			console.log(
+				this.nodeType,
+				this.nodeName,
+				this.nodeValue
+			)
+		}
+
+		document.info()
+		document.doctype.info()
+		document.createDocumentFragment().info()
+		document.querySelector('a').info()
+		document.querySelector('a').firstChild.info()
+	</script>
+</body>
+</html>

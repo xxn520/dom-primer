@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>nodePrototype</title>
+</head>
+<body>
+	<script>
+		console.log('------------Node.prototype-------------')
+		for (let key in Node.prototype) {
+			console.log(`${key} = ${Node[key]}`)
+		}
+		console.log('------------Element.prototype-------------')
+		for (let key in Element.prototype) {
+			if (!(key in Node.prototype)) {
+				console.log(`${key} = ${Node[key]}`)
+			}
+		}
+		console.log('------------HTMLElement.prototype-------------')
+		for (let key in HTMLElement.prototype) {
+			if (!(key in Element.prototype)) {
+				console.log(`${key} = ${Node[key]}`)
+			}
+		}
+	</script>
+</body>
+</html>
+
+<!-- 
+从 Node 等继承来了基础的 DOM 访问和操作相关的属性和方法。
+-->

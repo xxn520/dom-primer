@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>stringToNode</title>
+</head>
+<body>
+	<div id="a">我被覆盖了</div>
+	<div id="b"></div>
+	<div id="c">我被覆盖了</div>
+	<div id="d">我被覆盖了</div>
+	<div id="e"></div>
+	<div id="f">分割线</div>
+	<div id="g">分割线</div>
+	<div id="h">分割线</div>
+
+	<script>
+		// 在 Element 上
+		// 把 id#a 内部的元素给覆盖了
+		// 性能消耗大
+		document.getElementById('a').innerHTML = '<strong>Hi</strong>'
+
+		// 在 Element 上
+		// 把 id#b 给覆盖了
+		document.getElementById('b').outerHTML = '<div id="B" class="new">Whats Shaking</div>'
+
+		// 在 Node 上
+		// 和下面 innerText 行为相同，小区别是 innerHTML 不会返回隐藏元素
+		document.getElementById('c').textContent = '<strong>Hi</strong>'
+
+		// 下面两个是非标准的扩展，它们在创建节点前会进行转义。在 HTMLElement 上。
+		// 把 id#d 内部的元素给覆盖了，和 innerHTML 的区别在于替换的是一个文本节点，不会创建 strong 节点。
+		document.getElementById('d').innerText = '<strong>Hi</strong>'
+
+		// 把 id#e 给覆盖了，和 outerHTML 区别在于替换的是一个文本节点，即使是下面这样的。
+		document.getElementById('e').outerText = '<div id="E" class="new">Whats Shaking</div>'
+
+		console.log(document.body.innerHTML)
+
+		// 三个更精确地方法 insertAdjacentElement insertAdjacentText insertAdjacentHTML
+
+		let f = document.getElementById('f')
+		let g = document.getElementById('g')
+		let h = document.getElementById('h')
+
+		let e1 = document.createElement('p')
+		e1.innerHTML = 'beforebegin'
+		let e2 = document.createElement('p')
+		e2.innerHTML = 'beforeend'
+		let e3 = document.createElement('p')
+		e3.innerHTML = 'afterbegin'
+		let e4 = document.createElement('p')
+		e4.innerHTML = 'afterend'
+
+		f.insertAdjacentElement('beforebegin', e1)
+		f.insertAdjacentElement('beforeend', e2)
+		f.insertAdjacentElement('afterbegin', e3)
+		f.insertAdjacentElement('afterend', e4)
+
+		// HTML 和 Text 的区别就在于是否对内容进行转义。
+		g.insertAdjacentText('beforebegin', '<strong>Hi</strong>')
+		g.insertAdjacentText('beforeend', '<strong>Hi</strong>')
+		g.insertAdjacentText('afterbegin', '<strong>Hi</strong>')
+		g.insertAdjacentText('afterend', '<strong>Hi</strong>')
+
+		h.insertAdjacentHTML('beforebegin', '<strong>Hi</strong>')
+		h.insertAdjacentHTML('beforeend', '<strong>Hi</strong>')
+		h.insertAdjacentHTML('afterbegin', '<strong>Hi</strong>')
+		h.insertAdjacentHTML('afterend', '<strong>Hi</strong>')
+
+		console.log(document.getElementById('f').innerHTML)
+		console.log(document.getElementById('f').outerHTML)
+		console.log(document.getElementById('f').textContent)
+		console.log(document.getElementById('f').innerText)
+		console.log(document.getElementById('f').outerText)
+
+	</script>
+</body>
+</html>

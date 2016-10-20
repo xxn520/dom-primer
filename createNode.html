@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>createNode</title>
+</head>
+<body>
+	<script>
+		let  element = document.createElement('div')
+		console.log(element, element.nodeType)
+
+		let  textNode = document.createTextNode('Hi')
+		console.log(textNode, textNode.nodeType)
+
+		let  comment = document.createComment('我是注释')
+		console.log(comment, comment.nodeType)
+
+		console.log('已经废弃，用 setAttribute 代替')
+		let  attribute = document.createAttribute('div')
+		console.log(attribute, attribute.nodeType)		
+
+		let  documentFragment = document.createDocumentFragment()
+		console.log(documentFragment, documentFragment.nodeType)
+	</script>
+</body>
+</html>

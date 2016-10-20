@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>extendsFromNode</title>
+</head>
+<body>
+	<a href="javascript:void(0)"></a>
+	<script>
+		let a = document.querySelector('a')
+
+		for (let key in a) {
+			console.log(`${key} = ${a[key]}`)
+		}
+	</script>
+</body>
+</html>
+
+<!-- 
+虽然不知道 Js 是如何与 WebKit 内的 C++ 实现的 DOM 规范接口进行对应和交互的
+但是在 Js 层，也对于 DOM 规范的接口提供了实现，用来操作和访问 DOM 元素
+下面是继承关系：
+Object <- Node <- Element <- HTMLElement <- HTML*Element
+Object <- Node <- Attr (DOM4 中启用)
+Object <- Node <- CharacterData <- Text
+Object <- Node <- Document <- HTMLDocument
+Object <- Node <- DocuementFragment
+-->
