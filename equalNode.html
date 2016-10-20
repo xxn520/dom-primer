@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>equalNode</title>
+</head>
+<body>
+	<input type="text">
+	<input type="text">
+
+	<textarea>aaa</textarea>
+	<textarea>bbb</textarea>
+
+	<script>
+		// isEqualNode 会比较内容，但不一定是同一个，
+		// 而 isSameNode 要求是完全相同的，同一个对象
+		let inputs = document.querySelectorAll('input')
+		console.log(inputs[0].isEqualNode(inputs[1]))
+		console.log(inputs[0].isSameNode(inputs[1]))
+
+		let textareas = document.querySelectorAll('textarea')
+		console.log(textareas[0].isEqualNode(textareas[1]))
+		console.log(inputs[0].isSameNode(inputs[1]))
+	</script>
+</body>
+</html>

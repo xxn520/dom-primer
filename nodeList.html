@@ -16,9 +16,13 @@
 	<script>
 		let ulChilds = document.querySelector('ul').childNodes
 
-		[].forEach.call(ulChilds, function(value, index, arr) {
-			console.log(value)
-		})
+		Array.prototype.forEach.call(ulChilds, value => console.log(value))
+		// [].forEach.call(ulChilds, value => console.log(value)) 报错？
+
+		// 转成数组
+		// [...ulChilds].forEach(value => console.log(value))
+		Array.from(ulChilds).forEach(value => console.log(value))
+		Array.prototype.slice.call(ulChilds).forEach(value => console.log(value))
 	</script>
 	
 </body>

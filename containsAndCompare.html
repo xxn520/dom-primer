@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>containsAndCompare</title>
+</head>
+<body>
+	<script>
+		console.log(document.querySelector('html').contains(document.body))
+		console.log(document.querySelector('html').compareDocumentPosition(document.body))
+	</script>
+</body>
+</html>
+
+<!-- 
+多种关系可以叠加：
+DOCUMENT_POSITION_DISCONNECTED = 1	不在文档中
+DOCUMENT_POSITION_PRECEDING = 2		传入节点在选取节点前
+DOCUMENT_POSITION_FOLLOWING = 4		传入节点在选取节点后
+DOCUMENT_POSITION_CONTAINS = 8		传入节点包含
+DOCUMENT_POSITION_CONTAINED_BY = 16 传入节点被包含
+DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = 32 
+-->

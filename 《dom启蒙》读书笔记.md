@@ -40,3 +40,26 @@
      1. `length` 属性，因此可以是类数组对象
      2. 实时反映
      3. 默认情况下，顺序与树中的顺序一致 
+ 12. [遍历](./晚上)
+     1. 节点（包括了注释、文本节点）
+     	 1. `Node.prototype.parentNode`
+     	 2. `Node.prototype.firstNode`
+     	 3. `Node.prototype.lastNode`
+     	 4. `Node.prototype.nextSibling`
+     	 5. `Node.prototype.perviosSibling`
+     2. 元素
+         1. `Element.prototype.fristElementChild`
+         2. `Element.prototype.lastElementChild`
+         3. `Element.prototype.nextElementChild`
+         4. `Element.prototype.perviosElementChild`
+         5. `Element.prototype.children`
+         6. `Element.prototype.parentElement`
+         7. `Element.prototype.previousElementSibling`
+         8. `Element.prototype.nextElementSibling`
+     3. `Element.prototype.childElementCount`
+ 13. [验证节点位置](./containsAndCompare.html)
+     1. `Node.prototype.contains`
+     2. `Node.prototype.compareDocumentPosition`
+ 14. [比较节点](./equalNode.html) 
+     1. `Node.prototype.isEqualNode`
+     2. `Node.prototype.isSameNode`
