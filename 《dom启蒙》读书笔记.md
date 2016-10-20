@@ -40,7 +40,7 @@
      1. `length` 属性，因此可以是类数组对象
      2. 实时反映
      3. 默认情况下，顺序与树中的顺序一致 
- 12. [遍历](./晚上)
+ 12. [遍历](./bianli.js)
      1. 节点（包括了注释、文本节点）
      	 1. `Node.prototype.parentNode`
      	 2. `Node.prototype.firstNode`
@@ -63,3 +63,26 @@
  14. [比较节点](./equalNode.html) 
      1. `Node.prototype.isEqualNode`
      2. `Node.prototype.isSameNode`
+2. 文档节点
+ 1. `Document` 和 `HTMLDocument`
+ 2. [属性和方法](./documentAttr.html)
+ 3. 通用信息
+     1. `title`
+     2. `URL`
+     3. `charset`
+     4. `contentType`
+     5. `compatMode` BackCompat（怪异模式）CSS1Compat（严格模式）
+     6. `referrer`
+     7. `lastModified`
+     8. 等等
+ 4. 快捷访问
+     1. `doctype`：现代浏览器不在 `document.childNodes` 中
+     2. `head`
+     3. `body` 
+     4. `documentElement`：即 `<html lang="en">`
+ 5. [探测特性](./hasFeature.html)
+     1. `implementation.hasFeature`
+ 6. [获取激活节点](./activeElement.html)   
+ 7. [是否聚焦在当前文档窗口上](./hasFocus.html)
+ 8. [获取全局对象](./defaultView.html)
+ 9. [获取 `document`](./ownerDocument.html)

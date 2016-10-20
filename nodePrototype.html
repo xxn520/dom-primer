@@ -5,21 +5,23 @@
 	<title>nodePrototype</title>
 </head>
 <body>
+	<div id="node"></div>
 	<script>
+		let node = document.getElementById('node')
 		console.log('------------Node.prototype-------------')
 		for (let key in Node.prototype) {
-			console.log(`${key} = ${Node[key]}`)
+			console.log(`${key} = ${node[key]}`)
 		}
 		console.log('------------Element.prototype-------------')
 		for (let key in Element.prototype) {
 			if (!(key in Node.prototype)) {
-				console.log(`${key} = ${Node[key]}`)
+				console.log(`${key} = ${node[key]}`)
 			}
 		}
 		console.log('------------HTMLElement.prototype-------------')
 		for (let key in HTMLElement.prototype) {
 			if (!(key in Element.prototype)) {
-				console.log(`${key} = ${Node[key]}`)
+				console.log(`${key} = ${node[key]}`)
 			}
 		}
 	</script>

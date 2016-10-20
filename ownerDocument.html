@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>defaultView</title>
+</head>
+<body>
+	<iframe src="./stringToNode.html" frameborder="0"></iframe>
+
+	<script>
+		console.log(document.body.ownerDocument)
+
+		console.log(window.frames[0].document.body.ownerDocument)
+	</script>
+</body>
+</html>

@@ -14,10 +14,25 @@
 	</ul>
 
 	<script>
+		// nodeList
 		let ulChilds = document.querySelector('ul').childNodes
 
 		Array.prototype.forEach.call(ulChilds, value => console.log(value))
 		// [].forEach.call(ulChilds, value => console.log(value)) 报错？
+
+		// HTMLCollection
+		let images = document.images
+		let embeds = document.embeds
+		let plugins = document.plugins
+		let links = document.links
+		let forms = document.forms
+		let scripts = document.scripts
+		let currentScript = document.currentScript
+		let anchors = document.anchors
+		let applets = document.applets
+		let children = document.children
+
+		console.log(currentScript)
 
 		// 转成数组
 		// [...ulChilds].forEach(value => console.log(value))

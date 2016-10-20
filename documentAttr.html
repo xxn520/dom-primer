@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>documentAttr</title>
+</head>
+<body>
+	<script>
+		console.log(document.constructor)	// 构造函数 HTMLDocument
+		console.log(document.nodeType)		// 节点类型 9
+		console.log('------------Document.prototype-------------')
+		for (let key in Document.prototype) {
+			if (!(key in Node.prototype)) {
+				console.log(`${key} = ${document[key]}`)
+			}
+		}
+		console.log('------------HTMLDocument.prototype-------------')
+		for (let key in HTMLDocument.prototype) {
+			if (!(key in Document.prototype)) {
+				console.log(`${key} = ${document[key]}`)
+			}
+		}
+
+		window.onload = function() {
+			console.log('------------onload-------------')
+			console.log('document.readyState')
+		}
+	</script>
+</body>
+</html>
