@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>handleAttributes</title>
+</head>
+<body>
+	<a href="#" title="title" data-foo="dataFoo" class="yes" style="margin: 0;" foo="boo" hidden="hidden">#link</a>
+
+	<script>
+		let a = document.querySelector('a')
+		let attrs = a.attributes
+
+		Array.prototype.forEach.call(attrs, node => console.log(`${node.nodeName} = ${node.nodeValue}`))
+
+		console.log('------------华丽的分割线-----------')
+
+		// 删除属性
+		a.removeAttribute('foo')
+
+		// 属性是否存在
+		if (a.hasAttribute('hidden')) {
+			console.log('a has the attribute named hidden')
+		}
+
+		// 获得属性
+		console.log(a.getAttribute('hidden'))
+
+		// 设置属性
+		console.log(a.setAttribute('title', '486'))
+
+	</script>
+</body>
+</html>
+
+<!-- 
+有网时待查：
+Element.prototype.getAttributeNS
+Element.prototype.setAttributeNS
+Element.prototype.hasAttributeNS
+Element.prototype.removeAttributeNS
+Element.prototype.getAttributeNode
+Element.prototype.getAttributeNodeNS
+Element.prototype.setAttributeNode
+Element.prototype.setAttributeNodeNS
+Element.prototype.removeAttributeNode 
+-->

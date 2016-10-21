@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>classList</title>
+</head>
+<body>
+	<div class="big brown bear"></div>
+
+	<script>
+		let div = document.querySelector('div')
+
+		// IE 10 才支持 classList
+		// https://github.com/eligrey/classList.js
+		// 也是实时的
+		console.log(div.classList)
+		console.log(div.className === div.classList.value)
+
+		// 操作
+		let classList = div.classList
+		classList.add('cat')
+		console.log(classList.value)
+		classList.remove('bear')
+		console.log(classList.value)
+		classList.toggle('show')
+		console.log(classList.value)
+		classList.toggle('show')
+		console.log(classList.value)
+		console.log(classList.contains('brown'))
+	</script>
+</body>
+</html>

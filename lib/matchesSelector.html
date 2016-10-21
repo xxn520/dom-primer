@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>matchesSelector</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+
+	<script>
+		// 判断所选取的元素是否是某个 ul 的最后一个 li 元素
+		// console.log(document.querySelector('li').matchesSelector('li:last-child'))
+		console.log(document.querySelector('li').webkitMatchesSelector('li:last-child'))
+		// console.log(document.querySelector('li').mozMatchesSelector('li:last-child'))
+		// console.log(document.querySelector('li').msMatchesSelector('li:last-child'))
+		// console.log(document.querySelector('li').oMatchesSelector('li:last-child'))
+		// matchesSelector 用之前还要判断前缀很麻烦，可以用 matches 代替，兼容性待查
+		console.log(document.querySelector('li').matches('li:last-child'))
+	</script>
+</body>
+</html>

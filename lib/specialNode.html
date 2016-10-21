@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>specialNode</title>
+</head>
+<body>
+	<ul id="f">
+		<li>hello</li>
+		<li>big</li>
+		<li>bad</li>
+		<li id="flast">world</li>
+	</ul>
+
+	<ul id="e">
+		<li>hello</li>
+		<li>big</li>
+		<li>bad</li>
+		<li id="elast">world</li>
+	</ul>
+
+	<script>
+		// querySelector 允许传入 css 选择器，它会返回第一个符合的元素
+		let ul = document.querySelector('ul#e')
+		// 元素上的 querySelector 只作用于子树	
+		console.log(ul.querySelector('li:last-child'))
+		console.log(document.querySelector('li:last-child'))
+
+		// getElementById 很简单不写了
+		let li = document.getElementById('elast')
+		li.textContent = '486'
+	</script>
+</body>
+</html>

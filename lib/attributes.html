@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>attributes</title>
+</head>
+<body>
+	<a href="javascript:void(0)" title="title" data-foo="dataFoo" class="yes" style="margin: 0;" foo="boo"></a>
+	
+	<script>
+		// 返回的是 NamedNodeMap，有 length，类数组对象
+		// 数组内容是实时的
+		// 提供了 getNamedItem setNamedItem removeNamedItem
+		// 与后面要讲的 getAttribute setAttribute hasAttribute removeAttribute 一致，但是是次要的
+		let attributes = document.querySelector('a').attributes
+
+		Array.prototype.forEach.call(attributes, node => console.log(`${node.nodeName} = ${node.nodeValue}`))
+
+		console.log(attributes.getNamedItem('foo'))
+		console.log(attributes.removeNamedItem('foo'))
+		attributes.getNamedItem('title').textContent = '486'
+		console.log(attributes.setNamedItem(attributes.getNamedItem('title')))
+	</script>
+</body>
+</html>

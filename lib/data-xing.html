@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>data-*</title>
+</head>
+<body>
+	<div data-foo-foo="foo" data-bar-bar="bar"></div>
+
+	<script>
+		// IE 9 不支持，可以使用 setAttribute getAttribute 来代替
+		// 会变成驼峰式
+		// http://goo.gl/xc34vg
+		// 貌似在一些 jquery 插件、bootstrap 中使用的蛮多的
+		let div = document.querySelector('div')
+		let dataset = div.dataset
+
+		console.log(dataset)
+		console.log(dataset.fooFoo)
+		console.log(dataset.barBar)
+
+		dataset.fooFoo = '486'
+		console.log(dataset.fooFoo)
+
+		console.log(div)
+	</script>
+</body>
+</html>
