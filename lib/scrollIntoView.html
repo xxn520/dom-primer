@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scrollIntoView</title>
+</head>
+<style>
+	div { height: 30px; width: 30px; overflow: auto; }
+	p { height: 30px; background-color: red; }
+</style>
+<body>
+	<div>
+		<content>
+			<p>1</p>
+			<p>2</p>
+			<p>3</p>
+			<p>4</p>
+			<p>5</p>
+			<p>6</p>
+			<p>7</p>
+			<p>8</p>
+			<p>9</p>
+			<p>10</p>
+		</content>
+	</div>
+
+	<script>
+		// 两个的区别待查
+		document.querySelector('content').children[4].scrollIntoView()
+
+		setTimeout(() => {
+			document.querySelector('content').children[8].scrollIntoViewIfNeeded()	
+		}, 5000)
+	</script>
+</body>
+</html>

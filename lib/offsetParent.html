@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>offsetParent</title>
+</head>
+<style>
+	body { margin: 0; }
+	#blue { height: 100px; width: 100px; background-color: blue; border: 10px solid gray; padding: 25px; margin: 25px; }
+	#red { height: 50px; width: 50px; background-color: red; border: 10px solid gray; }
+	#green { height: 100px; width: 100px; background-color: green; border: 10px solid gray; padding: 25px; margin: 25px; position: absolute; }
+	#yellow { height: 50px; width: 50px; background-color: yellow; border: 10px solid gray; }
+</style>
+<body>
+	<div id="blue">
+		<div id="red"></div>
+	</div>
+
+	<div id="green">
+		<div id="yellow"></div>
+	</div>
+
+	<script>
+
+		// offsetParent 如何确定？
+		// 最近的不为 static 的祖先元素。
+		// 如果查询过程中未 table、th、td，那么即使定位值是 static，它将成为 offsetParent 的值。
+		// 偏移是根据 offsetParent 的内容区域来算的，但是对于 body 会加上外边距和边框	
+		// 注意垂直方向上的 margin 会合并，可以用 bfc 或 IE 下 haslayout 来阻止
+		let red = document.getElementById('red')
+
+		console.log(red.offsetParent)	// body
+		console.log(red.offsetLeft)		// margin25+border10+padding25
+		console.log(red.offsetTop)		// margin25+border10+padding25
+		console.log(red.clientLeft)	    // 10 就是边框 
+		console.log(red.clientTop)	    // 10 就是边框 
+
+		let yellow = document.getElementById('yellow')
+
+		console.log(yellow.offsetParent)	// #green
+		console.log(yellow.offsetLeft)		// padding25
+		console.log(yellow.offsetTop)		// padding25
+		console.log(yellow.clientLeft)	    // 10 就是边框 
+		console.log(yellow.clientTop)	    // 10 就是边框 
+	</script>
+</body>
+</html>

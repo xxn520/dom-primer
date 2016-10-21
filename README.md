@@ -20,7 +20,7 @@
      2. `Element.prototype.outerHTML`
      3. `Node.prototype.textContent`  
      4. `Element.prototype.insertAdjacentElement`
-	 5. `Element.prototype.insertAdjacentText`
+     5. `Element.prototype.insertAdjacentText`
      6. `Element.prototype.insertAdjacentHTML`
      7. `HTMLElement.prototype.innerText`
      8. `HTMLElement.prototype.outerText`
@@ -147,3 +147,44 @@
      4. `Element.prototype.msMatchesSelector`
      5. `Element.prototype.oMatchesSelector`
      6. `Element.prototype.matches` 新的这个，不用加前缀
+5. 元素节点几何量与滚动几何量
+     1. CSSOM 视图模块规范中定义了访问和操作元素节点可视化表象的元素几何量、滚动几何量的属性和方法。
+     2. [相对 `HTMLElement.prototype.offsetParent` 的位置](./lib/offsetParent.html)
+       1. `HTMLElement.prototype.offsetLeft` 相对于自身 `offsetParent`
+       2. `HTMLElement.prototype.offsetTop` 相对于 `offsetParent`
+       3. `Element.prototype.clientTop` 相对于自身边框
+       4. `Element.prototype.clientLeft` 相对于自身边框
+       5. `Element.prototype.scrollTop` [滚动元素](./lib/scrollElement.html)
+       6. `Element.prototype.scrollLeft` [滚动元素](./lib/scrollElement.html)
+     3. [相对视区的偏移](./lib/getBoundingClientRect.html) 
+       1. `Element.prototype.getBoundingClientRect`
+       2. `Element.prototype.getClientRects`
+     4. [元素在视图中的尺寸](./lib/elementSize.html)
+       1. `HTMLElement.prototype.offsetHeight` 包括边框
+       2. `HTMLElement.prototype.offsetWidth` 包括边框
+       3. `Element.prototype.getBoundingClientRect().width` 包括边框
+       4. `Element.prototype.getBoundingClientRect().height` 包括边框
+       5. `Element.prototype.clientWidth` 不包括边框
+       6. `Element.prototype.clientHeight` 不包括边框
+       7. `Element.prototype.scrollWidth` [滚动元素](./lib/scrollElement.html)
+       8. `Element.prototype.scrollHeight` [滚动元素](./lib/scrollElement.html)
+     5. 特定点上最顶层元素
+       1. `document.elementFromPoint`
+     6. [滚动元素到视区](./scrollIntoView.html)
+       1. `Element.prototype.scrollIntoView`
+       2. `Element.prototype.scrollIntoViewIfNeeded`
+     7. 获取文档/窗口大小 
+       1. `document.body.offsetWidth`
+       2. `document.body.offsetHeight`
+       3. `document.body.clientWidth`
+       4. `document.body.clientHeight`
+       5. `document.body.scrollWidth` 文档的宽
+       6. `document.body.scrollHeight` 文档的高
+       7. `document.documentElement.offsetWidth`
+       8. `document.documentElement.offsetHeight`
+       9. `document.documentElement.clientWidth` 窗口的宽
+       10. `document.documentElement.clientHeight` 窗口的高
+       11. `document.documentElement.scrollWidth` 文档的宽
+       12. `document.documentElement.scrollHeight` 文档的高
+       13. 如果 scrollview 内的元素要比视口小，返回的就是视口的大小。 
+    

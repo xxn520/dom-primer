@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scrollElement</title>
+</head>
+<style>
+	* { margin: 0px; padding: 0px; }
+	div { height: 100px; width: 100px; overflow: auto; }
+	p { 
+		height: 1000px; 
+		width: 1000px; 
+		margin: 10px; 
+		padding: 10px; 
+		border: 10px solid gray; 
+		background-color: red; 
+	}
+</style>
+<body>
+	<div>
+		<p></p>
+	</div>
+
+	<script>
+		// 文档完整的尺寸
+		// document.body.scrollWidth document.body.scrollHeight
+		// document.documentElement.scrollWidth documentdocumentElement.scrollHeight
+		let div = document.querySelector('div')
+
+		div.scrollTop = 750
+		div.scrollLeft = 750
+
+		// 右边的 margin 没了
+		console.log(div.scrollWidth, div.scrollHeight)	// 1050，1060
+
+	</script>
+</body>
+</html> 

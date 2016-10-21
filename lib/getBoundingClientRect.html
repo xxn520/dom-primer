@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getBoundingClientRect</title>
+</head>
+<style>
+	body { margin: 10px; }
+	div { height: 50px; width: 50px; background-color: red; border: 10px solid gray; margin: 100px;}
+</style>
+<body>
+	<div></div>
+
+	<script>
+		let divDeges = document.querySelector('div').getBoundingClientRect();
+
+		console.log(divDeges)
+		// ClientRect
+		// bottom:170
+		// height:70
+		// left:110
+		// right:180
+		// top:100
+		// width:70
+
+		let clientDeges = document.querySelector('div').getClientRects();
+
+		console.log(clientDeges)
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>elementSize</title>
+</head>
+<style>
+	body { margin: 10px; }
+	div { height: 50px; width: 50px; background-color: red; border: 10px solid gray; padding: 10px;}
+</style>
+<body>
+	<div></div>
+
+	<script>
+		// 边框 + 填充 + 内容
+		let div = document.querySelector('div')
+		console.log(div.offsetWidth, div.offsetHeight)
+
+		let divEdge = div.getBoundingClientRect()
+		console.log(divEdge.width, divEdge.height)
+
+		// 填充 + 内容
+		console.log(div.clientWidth, div.clientHeight)
+	</script>
+</body>
+</html>
