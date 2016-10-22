@@ -17,9 +17,10 @@
 		// console.log(document.querySelector('li').matchesSelector('li:last-child'))
 		console.log(document.querySelector('li').webkitMatchesSelector('li:last-child'))
 		// console.log(document.querySelector('li').mozMatchesSelector('li:last-child'))
+		// IE 9 开始支持这个
 		// console.log(document.querySelector('li').msMatchesSelector('li:last-child'))
 		// console.log(document.querySelector('li').oMatchesSelector('li:last-child'))
-		// matchesSelector 用之前还要判断前缀很麻烦，可以用 matches 代替，兼容性待查
+		// matchesSelector 用之前还要判断前缀很麻烦，可以用 matches 代替，兼容性 IE 11 还不支持
 		console.log(document.querySelector('li').matches('li:last-child'))
 	</script>
 </body>
