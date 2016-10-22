@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>textAttr</title>
+</head>
+<body><!-- 注释 -->
+	<p>486</p>
+
+	<script>
+		let text = document.querySelector('p').firstChild
+		console.log(text.constructor)
+		console.log('------------Node.prototype-------------')
+		for (let key in Node.prototype) {
+			console.log(`${key} = ${text[key]}`)
+		}
+		console.log('------------CharacterData.prototype-------------')
+		for (let key in CharacterData.prototype) {
+			if (!(key in Node.prototype)) {
+				console.log(`${key} = ${text[key]}`)
+			}
+		}
+		console.log('------------Text.prototype-------------')
+		for (let key in Text.prototype) {
+			if (!(key in CharacterData.prototype)) {
+				console.log(`${key} = ${text[key]}`)
+			}
+		}
+	</script>
+</body>
+</html>
+
+<!-- 
+============Node.prototype===========
+textContent = 486
+normalize = function normalize() { [native code] }
+============CharacterData.prototype============
+data = 486
+length = 3
+previousElementSibling = null
+nextElementSibling = null
+substringData = function substringData() { [native code] }
+appendData = function appendData() { [native code] }
+insertData = function insertData() { [native code] }
+deleteData = function deleteData() { [native code] }
+replaceData = function replaceData() { [native code] }
+remove = function remove() { [native code] }
+before = function before() { [native code] }
+after = function after() { [native code] }
+replaceWith = function replaceWith() { [native code] }
+============Text.prototype============
+wholeText = 486
+splitText = function splitText() { [native code] }
+getDestinationInsertionPoints = function getDestinationInsertionPoints() { [native code] }
+assignedSlot = null 
+-->

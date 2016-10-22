@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>elementStyle</title>
+</head>
+<style>
+	div {
+		padding: 5px;
+		margin: 5px;
+	}
+</style>
+<body>
+	<div style="background-color: red;border: 1px solid gray;height: 100px;width: 100px;"></div>
+
+	<script>
+		let div = document.querySelector('div')
+		console.log(div.style)	// CSSStyleDeclaration 只返回内联样式
+
+		// 属性名包含横线会变成驼峰式
+		// 包含关键字则会添加css前缀	
+		// set
+		div.style.backgroundColor = 'blue'
+		div.style.height = '50px'
+		div.style.width = '50px'
+		div.style.border = '1px solid black'
+
+		// get
+		console.log(div.style.backgroundColor)
+		console.log(div.style.height)
+		console.log(div.style.width)
+		console.log(div.style.border)
+
+		// remove
+		div.style.backgroundColor = ''
+		div.style.height = ''
+		div.style.width = ''
+		div.style.border = ''
+
+	</script>
+</body>
+</html>

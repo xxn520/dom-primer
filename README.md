@@ -66,7 +66,7 @@
      1. `Node.prototype.isEqualNode`
      2. `Node.prototype.isSameNode`
 2. 文档节点
- 1. `Document` 和 `HTMLDocument`
+ 1. `Object` <- `Node` <- `Document` <- `HTMLDocument`
  2. [属性和方法](./lib/documentAttr.html)
  3. 通用信息
      1. `title`
@@ -174,17 +174,62 @@
        1. `Element.prototype.scrollIntoView`
        2. `Element.prototype.scrollIntoViewIfNeeded`
      7. 获取文档/窗口大小 
-       1. `document.body.offsetWidth`
-       2. `document.body.offsetHeight`
-       3. `document.body.clientWidth`
-       4. `document.body.clientHeight`
-       5. `document.body.scrollWidth` 文档的宽
-       6. `document.body.scrollHeight` 文档的高
-       7. `document.documentElement.offsetWidth`
-       8. `document.documentElement.offsetHeight`
-       9. `document.documentElement.clientWidth` 窗口的宽
-       10. `document.documentElement.clientHeight` 窗口的高
+       1. `document.body.offsetWidth` body 的宽含边框
+       2. `document.body.offsetHeight` body 的高含边框
+       3. `document.body.clientWidth` body 的宽不含边框
+       4. `document.body.clientHeight` body 的高不含边框
+       5. `document.body.scrollWidth`
+       6. `document.body.scrollHeight`
+       7. `document.documentElement.offsetWidth` body 的宽
+       8. `document.documentElement.offsetHeight` body 的高
+       9. `document.documentElement.clientWidth` 视口的宽
+       10. `document.documentElement.clientHeight` 视口的高
        11. `document.documentElement.scrollWidth` 文档的宽
        12. `document.documentElement.scrollHeight` 文档的高
-       13. 如果 scrollview 内的元素要比视口小，返回的就是视口的大小。 
-    
+       13. 当 body 小于当前视口的时候，`document.body.scrollHeight` 和 `document.body.scrollWidth` 反映的是视口的大小。否则反映的就是文档的宽高。
+6. 元素节点内联样式
+ 1. 获取[内联样式](./lib/elementStyle.html)
+     1. `HTMLElement.prototype.style`  得到 `CSSStyleDeclaration`
+ 2. 设置[内联样式](./lib/elementStyle.html) 
+     1. 直接通过 `style` 获得、设置、删除内联样式属性
+     2. `style.setProperty`
+     3. `style.getPropertyValue`
+     4. `style.removeProperty`
+ 3. [所有内联样式](./lib/allElementStyle.html)
+     1. `style.cssText`
+     2. `Element.prototype.setAttribute`、`Element.prototype.getAttribute`、`Element.prototype.removeAttribute`
+ 4. 计算样式
+     1. `window.getComputedStyle` 上面获得样式都是内联，不叠加计算的，这个方法返回的是叠加计算后的实际值。  
+     2. `window.getComputedStyle` 得到的 `CSSStyleDeclaration` 是只读的。
+7. 文本节点
+     1. `Object` <- `Node` <- `CharacterData` <- `Text` 和元素混在一区的文本会转换为文本节点
+     2. [文本节点属性和方法](./lib/textAttr.html)
+     3. 创建节点
+        1. 字符（包括空白符和回车符）会创建文本节点
+        2. 编程式创建：`document.createTextNode`
+     4. 节点值
+        1. `Node.prototype.nodeValue`
+        2. `Node.prototype.textContent` 会合并所有子文本节点
+        3. `CharacterData.prototype.data`
+        4. `Text.wholeText`
+     5. [操作文本节点](./lib/handleNode.html)
+        1. `CharacterData.prototype.appendData`
+        2. `CharacterData.prototype.deleteData`
+        3. `CharacterData.prototype.insertData`
+        4. `CharacterData.prototype.replaceData`
+        5. `CharacterData.prototype.substringData`
+        6. `Comment` 也继承了 `CharacterData`，所以也拥有这些方法
+     6. [多个兄弟文本节点](./lib/multiBrother.html) 
+        1. 拿上面的例子来说，`strong` 元素把文本截断，所以得到的 `childNodes` 的 `length` 为 3。
+        2. 另外也可以编程式地添加两个文本节点，而不会合并。
+        3. `Node.prototype.normalize` 合并兄弟文本节点。
+        4. [`Text.prototype.splitText` 分割文本节点](./lib/splitText.html)
+     7. `Node.prototype.textContent`
+        1. 合并返回所有子文本的内容
+        2. 设置的时候会移除所有子节点，替换为新的 `Text` 节点
+        3. `HTMLElement.prototype.innerText` 区别：
+          1. `innerText` 认识 Css，忽略隐藏文本。
+          2. `innerText` 关心 Css 触发重排。
+          3. `innerText` 使文本规范化。
+          4. `innerText` 非标准，新的火狐好像也支持了。
+8. `DocumentFragment` 节点

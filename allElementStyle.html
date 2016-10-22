@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>allElementStyle</title>
+</head>
+<body>
+	<div></div>
+
+	<script>
+		let div = document.querySelector('div')
+		let divStyle = div.style
+
+		// cssText
+		// set
+		divStyle.cssText = 'background-color: red;border: 1px solid gray;height:100px;width:100px;'
+		// get
+		console.log(divStyle.cssText)
+		// remove
+		divStyle.cssText = ''
+
+		// *Attribute
+		// set
+		div.setAttribute('style', 'background-color: red;border: 1px solid gray;height:100px;width:100px;')
+		// get
+		console.log(div.getAttribute('style'))
+		//remove
+		div.removeAttribute('style')
+	</script>
+</body>
+</html>

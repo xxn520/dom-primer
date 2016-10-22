@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>handleNode</title>
+</head>
+<body>
+	<p>go big blue blue</p>
+	<script>
+		let textNode = document.querySelector('p').firstChild
+
+		// append
+		textNode.appendData('!')
+		console.log(textNode.data)
+
+		// delete
+		textNode.deleteData(7, 5)
+		console.log(textNode.data)
+
+		// insert
+		textNode.insertData(7, 'blue ')
+		console.log(textNode.data)
+
+		// replace
+		textNode.replaceData(7, 5, 'Bunny ')
+		console.log(textNode.data)
+
+		// substring
+		console.log(textNode.substringData(7, 10))
+	</script>
+</body>
+</html>
