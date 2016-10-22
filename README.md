@@ -140,6 +140,7 @@
      7. `document.anchors`
      8. `document.applets`
      9. `document.children`
+     10. `document.styleSheets`
  5. [验证选取的元素](./lib/matchesSelector.html)
      1. `Element.prototype.matchesSelector` 针对不同浏览器加前缀
      2. `Element.prototype.webkitMatchesSelector`
@@ -156,7 +157,7 @@
        4. `Element.prototype.clientLeft` 相对于自身边框
        5. `Element.prototype.scrollTop` [滚动元素](./lib/scrollElement.html)
        6. `Element.prototype.scrollLeft` [滚动元素](./lib/scrollElement.html)
-     3. [相对视区的偏移](./lib/getBoundingClientRect.html) 
+     3. [相对视区的偏移](./lib/getBoundingClientRect.html)
        1. `Element.prototype.getBoundingClientRect`
        2. `Element.prototype.getClientRects`
      4. [元素在视图中的尺寸](./lib/elementSize.html)
@@ -232,4 +233,35 @@
           2. `innerText` 关心 Css 触发重排。
           3. `innerText` 使文本规范化。
           4. `innerText` 非标准，新的火狐好像也支持了。
-8. `DocumentFragment` 节点
+8. `DocumentFragment` 节点（文档片段）
+ 1. 空的文档模板，行为与实时 DOM 树相似，但是仅在内存中存在。 
+ 2. [创建文档片段节点](./createDocumentFragment.html)
+     1. `document.createDocumentFragment`
+     2. 与直接创建 div，然后创建 DOM 结构的区别：
+         1. 文档片段可以包含任意节点（body、html 除外）。
+         2. 文档片段插入 DOM 中时，自身不会添加，只插入子节点。
+         3. 文档片段插入 DOM 中时实际上是把传输的内容放到了 DOM，自身的内容就没了。
+         4. 在内存中创建节点注入到实时节点结构是极其高效的。
+ 3. 文档片段没有 `innerHTML` 属性，变通方法是新建一个 div，利用 div 的 `innerHTML`。
+ 4. 通过 `Node.prototype.cloneNode` 将文档片段保存在内存中。
+9. Css 样式表和 Css 规则
+ 1. [样式概述](./lib/styleType.html)
+     1. 行内样式
+     2. `HTMLLinkElement` 外部样式类
+     3. `HTMLStyleElement` 内部样式类
+     4. `CSSStyleSheet` 样式表对象类
+     5. `CSSStyleRule` 样式规则类
+ 2. 创建样式
+     1. `document.createElement('style')`
+     2. `document.createElement('link')`
+ 3. 获取所有样式表
+     1. `document.styleSheets`（包括外部和内部）
+     2. 实时、`length` 属性、类数组对象。
+     3. 单个样式表用 `sheet` 属性从 `HTMLLinkElement` 或 `HTMLStyleElement` 获取
+ 4. [`CSSStyleSheet` 的属性和方法](./lib/styleSheetAttr.html)
+ 5. [`CSSStyleRule` 的属性和方法](./lib/styleRuleAttr.html)
+ 6. 修改样式规则
+     1. `CSSStyleSheet` 的 `insertRule`、`deleteRule`、`addRule`、`removeRule` 方法。
+     2. 直接通过 `CSSStyleRule.prototype.style` 进行修改。
+ 7. `CSSStyleSheet.prototype.disabled` 使样式表失效。
+    

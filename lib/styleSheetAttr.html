@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>styleSheetAttr</title>
+	<link rel="stylesheet" href="./reset.css" id="linkEl">
+</head>
+<body>
+	<script>
+		let sheet = document.getElementById('linkEl').sheet
+		for (let key in sheet) {
+			console.log(`${key} = ${sheet[key]}`)
+		}
+	</script>
+</body>
+</html>
+
+<!-- 
+ownerRule = null
+cssRules = null			// css 规则
+rules = null			// css 规则
+insertRule = function insertRule() { [native code] }  // 插入规则
+deleteRule = function deleteRule() { [native code] }  // 删除规则
+addRule = function addRule() { [native code] }        // 添加规则
+removeRule = function removeRule() { [native code] }  // 移除规则
+type = text/css										  // 类型（只读）
+href = file:///Users/m2mbob/Documents/playground/dom-primer/lib/reset.css 	// css 文件地址（只读）
+ownerNode = [object HTMLLinkElement]                  // 包含的节点（只读）
+parentStyleSheet = null（只读）									
+title = null（只读）
+media = [object MediaList]（只读）
+disabled = false 	// 使样式表失效		
+-->

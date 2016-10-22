@@ -17,6 +17,8 @@
 		let div = document.querySelector('div')
 		console.log(div.style)	// CSSStyleDeclaration 只返回内联样式
 
+		// 属性名包含横线会变成驼峰式
+		// 包含关键字则会添加css前缀	
 		// set
 		div.style.backgroundColor = 'blue'
 		div.style.height = '50px'

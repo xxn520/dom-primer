@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>styleType</title>
+	<link rel="stylesheet" href="./reset.css" id="linkEl">
+</head>
+<style id="styleEl">
+	body { background-color: white }
+</style>
+<body>
+	<script>
+		let linkEl = document.getElementById('linkEl')
+		let styleEl = document.getElementById('styleEl')
+
+		console.log(linkEl.constructor)		// HTMLLinkElement
+		console.log(styleEl.constructor)	// HTMLStyleElement
+		console.log(styleEl.sheet.constructor)	// CSSStyleSheet
+		console.log(styleEl.sheet.cssRules[0].constructor)	// CSSStyleRule
+
+		console.log(document.styleSheets)
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>createDocumentFragment</title>
+</head>
+<body>
+	<script>
+		// 文档片段本身不会被添加进去
+		let docFrag = document.createDocumentFragment();
+
+		['blue', 'red', 'yello', 'white', 'green'].forEach((value) => {
+			let li = document.createElement('li')
+			li.textContent = value
+			docFrag.appendChild(li)
+		})
+
+		console.log(docFrag.textContent)	// 'blueredyellowhitegreen'
+
+		document.body.appendChild(docFrag)
+
+		console.log(docFrag.textContent)	// ''
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>styleRuleAttr</title>
+</head>
+<style id="styleEl">
+	body { background-color: white }
+	div { background-color: black }
+</style>
+<body>
+	<script>
+		let rule = document.getElementById('styleEl').sheet.cssRules[0]
+		for (let key in rule) {
+			console.log(`${key} = ${rule[key]}`)
+		}
+	</script>
+</body>
+</html>
+
+<!--
+规则类型常量：
+STYLE_RULE = 1
+CHARSET_RULE = 2
+IMPORT_RULE = 3
+MEDIA_RULE = 4
+FONT_FACE_RULE = 5
+PAGE_RULE = 6
+NAMESPACE_RULE = 10
+KEYFRAMES_RULE = 7
+KEYFRAME_RULE = 8
+SUPPORTS_RULE = 12
+WEBKIT_KEYFRAMES_RULE = 7
+WEBKIT_KEYFRAME_RULE = 8
+
+selectorText = body 						// 选择器
+style = [object CSSStyleDeclaration] 		// 样式
+type = 1 									// 类型
+cssText = body { background-color: white; } // cssText
+parentRule = null							
+parentStyleSheet = [object CSSStyleSheet] 
+-->

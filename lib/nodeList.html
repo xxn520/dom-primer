@@ -15,10 +15,10 @@
 
 	<script>
 		// nodeList
-		let ulChilds = document.querySelector('ul').childNodes
+		let ulChilds = document.querySelector('ul').childNodes;
 
-		Array.prototype.forEach.call(ulChilds, value => console.log(value))
-		// [].forEach.call(ulChilds, value => console.log(value)) 报错？
+		//Array.prototype.forEach.call(ulChilds, value => console.log(value))
+		[].forEach.call(ulChilds, value => console.log(value))
 
 		// HTMLCollection
 		let images = document.images
@@ -30,6 +30,9 @@
 		let anchors = document.anchors
 		let applets = document.applets
 		let children = document.children
+
+		// StyleSheetList
+		let styleSheets = document.styleSheets
 
 		let currentScript = document.currentScript
 		console.log(currentScript)
