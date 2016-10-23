@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>widthHeight</title>
+</head>
+<style>
+	body {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+	div {
+		width: 2000px;
+		height: 2000px;
+	}
+</style>
+<body>
+	<div></div>
+	<script>
+		console.log('document.body.scrollWidth = ' + document.body.scrollWidth)
+		console.log('document.body.scrollHeight = ' + document.body.scrollHeight)
+		console.log('document.body.clientWidth = ' + document.body.clientWidth)
+		console.log('document.body.clientHeight = ' + document.body.clientHeight)
+		console.log('document.body.offsetWidth = ' + document.body.offsetWidth)
+		console.log('document.body.offsetHeight = ' + document.body.offsetHeight)
+
+		console.log('document.documentElement.scrollWidth = ' + document.documentElement.scrollWidth)
+		console.log('document.documentElement.scrollHeight = ' + document.documentElement.scrollHeight)
+		console.log('document.documentElement.clientWidth = ' + document.documentElement.clientWidth)
+		console.log('document.documentElement.clientHeight = ' + document.documentElement.clientHeight)
+		console.log('document.documentElement.offsetWidth = ' + document.documentElement.offsetWidth)
+		console.log('document.documentElement.offsetHeight = ' + document.documentElement.offsetHeight)
+	</script>
+</body>
+</html>

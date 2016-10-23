@@ -181,13 +181,13 @@
        4. `document.body.clientHeight` body 的高不含边框
        5. `document.body.scrollWidth`
        6. `document.body.scrollHeight`
-       7. `document.documentElement.offsetWidth` body 的宽
-       8. `document.documentElement.offsetHeight` body 的高
+       7. `document.documentElement.offsetWidth` 文档的宽
+       8. `document.documentElement.offsetHeight` 文档的高
        9. `document.documentElement.clientWidth` 视口的宽
        10. `document.documentElement.clientHeight` 视口的高
        11. `document.documentElement.scrollWidth` 文档的宽
        12. `document.documentElement.scrollHeight` 文档的高
-       13. 当 body 小于当前视口的时候，`document.body.scrollHeight` 和 `document.body.scrollWidth` 反映的是视口的大小。否则反映的就是文档的宽高。
+       13. body 没有设置宽高的情况下，宽高为视口的宽高；设置了宽高则就是设置的宽高。没有设置宽高 `document.body.scrollWidth` 和 `document.body.offsetHeight` 为视口和内部元素宽高的大者。
 6. 元素节点内联样式
  1. 获取[内联样式](./lib/elementStyle.html)
      1. `HTMLElement.prototype.style`  得到 `CSSStyleDeclaration`
@@ -246,9 +246,9 @@
  4. 通过 `Node.prototype.cloneNode` 将文档片段保存在内存中。
 9. Css 样式表和 Css 规则
  1. [样式概述](./lib/styleType.html)
-     1. 行内样式
+     1. 元素内联样式
      2. `HTMLLinkElement` 外部样式类
-     3. `HTMLStyleElement` 内部样式类
+     3. `HTMLStyleElement` 页面内联样式类
      4. `CSSStyleSheet` 样式表对象类
      5. `CSSStyleRule` 样式规则类
  2. 创建样式
@@ -264,4 +264,27 @@
      1. `CSSStyleSheet` 的 `insertRule`、`deleteRule`、`addRule`、`removeRule` 方法。
      2. 直接通过 `CSSStyleRule.prototype.style` 进行修改。
  7. `CSSStyleSheet.prototype.disabled` 使样式表失效。
-    
+10. DOM 中的 JavaScript
+ 1. 脚本概述
+     1. 元素内联脚本，`<a href="javascript:void(0)"></a>` 和 `<button onclick="alert('yo')"></button>` 等。
+     2. `HTMLScriptElement` 页面内联脚本。
+     3. `HTMLScriptElement` 外部脚本。
+     4. 脚本元素内会新建一个文本节点，可以通过 `innerHTML`、`textContent`、`innerText` 来获取值。
+ 1. 同步加载和解析
+     1. 如果加载和解析是异步的，那么 `document.write` 输出的位置根本无法确定，而如果在 `onload` 事件之后调用 `document.write` 会自动触发 `document.open` 清空页面，因此 Js 默认采用了同步地加载方式，它会阻塞页面的解析。现代浏览器是支持并发下载脚本的。
+     2. 页面内联脚本也是如此，会同步执行，阻塞页面解析。
+     3. 因此在同步加载的情况下，把 Js 脚本放到页面底部是比较好的策略。
+ 2. [异步加载脚本](https://m2mbob.cn/2016/10/06/js-tong-bu-yi-bu-jia-zai-xiao-jie/)
+     1. 首先异步加载的脚本中出现，`document.write` 会报错。
+     2. `defer` 异步加载、在 `DOMContentLoaded` 事件之前有序执行。低版本的 IE 支持。
+     3. `async` 异步加载，加载完就执行，不利于依赖管理。IE 10 才支持，优先级高于 `defer`。
+     4. 手动创建 `script` 标签实现异步加载（前端模块加载器如：seajs、requirejs 使用的都是这种方式）。
+ 3. `onload` 和 `onreadystatechange`
+     1. 通常我们会为手动创建的 `script` 标签绑定一个加载完成的回调，在之后做一些操作，比如 seajs 会在加载完以后把 `script` 元素及其事件删除，防止内存泄漏，因为 seajs 已经把脚本的内容保存在模块对象上，供延迟调用了。
+     2. 而对于 IE 8 及以下的浏览器，`Node` 不支持 `onload` 事件，所以使用 `onreadystatechange` 来代替。
+ 4. 获取当前执行的脚本
+     1. `document.currentScript`
+     2. IE 6-9 下没有，解决方案待查。
+ 5. 获取所有脚本
+     1. `document.scripts`
+11. DOM 事件 
