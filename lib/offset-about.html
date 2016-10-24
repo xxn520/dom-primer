@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>offset 没有宽高</title>
+</head>
+<style>
+	body {
+		width: 100px;
+		height: 100px;
+	}
+	div {
+		width: 2000px;
+		height: 2000px;
+	}
+	p {
+		height: 100px;
+		width: 100px;
+	}
+</style>
+<body>
+	<div>
+		<p></p>
+	</div>
+
+	<script>
+		let html = document.documentElement
+		let body = document.body
+		let div = document.querySelector('div')
+		let p = document.querySelector('p')
+
+		// 下面是 chrome 下视口为500*776 的输出
+		console.log('html.offsetWidth = ' + html.offsetWidth);   // 500 视口的宽
+		console.log('html.offsetHeight = ' + html.offsetHeight); // 132 由内部元素撑起
+		console.log('body.offsetWidth = ' + body.offsetWidth);   // 484 减去了 margin 8*2
+		console.log('body.offsetHeight = ' + body.offsetHeight); // 100 由内部元素撑起
+		console.log('div.offsetWidth = ' + div.offsetWidth);	 // 484 撑满父元素	
+		console.log('div.offsetHeight = ' + div.offsetHeight);	 // 100 由内部元素撑起
+		console.log('p.offsetWidth = ' + p.offsetWidth);		 // 100 使用了指定的高
+		console.log('p.offsetHeight = ' + p.offsetHeight);		 // 100 使用了指定的宽
+	</script>
+</body>
+</html>

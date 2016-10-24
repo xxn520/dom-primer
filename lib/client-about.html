@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>client 没有宽高</title>
+</head>
+<style>
+	/*无效*/
+	html {
+		height: 100px;
+		width: 100px;
+	}
+	p {
+		height: 100px;
+		width: 100px;
+	}
+</style>
+<body>
+	<div>
+		<p></p>
+	</div>
+
+	<script>
+		let html = document.documentElement
+		let body = document.body
+		let div = document.querySelector('div')
+		let p = document.querySelector('p')
+
+		// 下面是 chrome 下视口为500*776 的输出
+		console.log('html.clientWidth = ' + html.clientWidth);   // 500 视口的宽
+		console.log('html.clientHeight = ' + html.clientHeight); // 776 视口的高
+		console.log('body.clientWidth = ' + body.clientWidth);   // 484 减去了 margin 8*2
+		console.log('body.clientHeight = ' + body.clientHeight); // 100 由内部元素撑起
+		console.log('div.clientWidth = ' + div.clientWidth);	 // 484 撑满父元素	
+		console.log('div.clientHeight = ' + div.clientHeight);	 // 100 由内部元素撑起
+		console.log('p.clientWidth = ' + p.clientWidth);		 // 100 使用了指定的高
+		console.log('p.clientHeight = ' + p.clientHeight);		 // 100 使用了指定的宽
+	</script>
+</body>
+</html>

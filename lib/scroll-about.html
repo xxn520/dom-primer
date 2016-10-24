@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scroll-about</title>
+</head>
+<style>
+	/*body {
+		这是第一种情况
+		width: 2000px;
+		height: 100px;
+	}*/
+	/*body {
+		这是第二种情况
+		width: 1000px;
+		height: 1000px;
+		padding: 10px;
+		margin: 20px;
+		border: 30px solid gray;
+	}
+	div {
+		height: 500px;
+		background-color: red;
+	}*/
+	body {
+		这是第三种情况
+		width: 1000px;
+		height: 1000px;
+	}
+	div {
+		height: 2000px;
+		background-color: red;
+	}
+	/*div {
+		height: 500px;
+		padding: 10px;
+		margin: 20px;
+		border: 30px solid gray;
+		background-color: blue;
+		overflow: auto;
+	}
+	p {
+		height: 500px;
+		padding: 10px;
+		margin: 20px;
+		border: 30px solid gray;
+		background-color: red;
+	}*/
+</style>
+<body>
+	<div>
+		<p></p>
+	</div>
+	<script>
+		console.log('document.documentElement.scrollWidth = ' + document.documentElement.scrollWidth)
+		console.log('document.documentElement.scrollHeight = ' + document.documentElement.scrollHeight)
+		console.log('document.body.scrollWidth = ' + document.body.scrollWidth)
+		console.log('document.body.scrollHeight = ' + document.body.scrollHeight)
+		// let div = document.querySelector('div')
+		// console.log(div.scrollWidth, div.scrollHeight)
+	</script>
+</body>
+</html>

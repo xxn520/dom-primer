@@ -5,12 +5,28 @@
 	<title>offsetParent</title>
 </head>
 <style>
-	html { margin: 20px; }
+	html { margin: 20px; padding: 10px;}
 	body { margin: 10px; }
 	#blue { height: 100px; width: 100px; background-color: blue; border: 10px solid gray; padding: 25px; margin: 25px; }
 	#red { height: 50px; width: 50px; background-color: red; border: 10px solid gray; }
-	#green { height: 100px; width: 100px; background-color: green; border: 10px solid gray; padding: 25px; margin: 25px; position: absolute; }
+	#green { height: 100px; width: 100px; background-color: green; border: 10px solid gray; padding: 25px; margin: 25px; position: relative; }
 	#yellow { height: 50px; width: 50px; background-color: yellow; border: 10px solid gray; padding: 30px; margin: 20px;}
+	#body {
+		border: 20px solid gray;
+		margin: 10px;
+		padding: 40px;
+		height: 350px;
+		width: 500px;
+		position: relative;
+	}
+	#mdiv {
+		width: 400px;
+		height: 200px;
+		padding: 20px;
+		margin: 10px;
+		background-color: #F60;
+		border: 20px solid gray;
+	}
 </style>
 <body>
 	<div id="blue">
@@ -19,6 +35,10 @@
 
 	<div id="green">
 		<div id="yellow"></div>
+	</div>
+
+	<div id="body">
+		<div id="mdiv"></div>
 	</div>
 
 	<script>
@@ -32,7 +52,7 @@
 		let red = document.getElementById('red')
 
 		console.log(red.offsetParent)	// body
-		console.log(red.offsetLeft)		// margin25+border10+padding25
+		console.log(red.offsetLeft)		// margin25+border10+padding25+bodymargin10
 		console.log(red.offsetTop)		// margin25+border10+padding25
 		console.log(red.clientLeft)	    // 10 就是边框 
 		console.log(red.clientTop)	    // 10 就是边框 
@@ -44,6 +64,11 @@
 		console.log(yellow.offsetTop)		// padding25
 		console.log(yellow.clientLeft)	    // 10 就是边框 
 		console.log(yellow.clientTop)	    // 10 就是边框 
+
+		let mdiv = document.getElementById('mdiv')
+		console.log(mdiv.offsetParent)	// #body
+		console.log(mdiv.offsetLeft)		// padding25
+		console.log(mdiv.offsetTop)		// padding25
 	</script>
 </body>
 </html>
