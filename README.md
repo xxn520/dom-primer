@@ -275,4 +275,73 @@
  5. 获取所有脚本
      1. `document.scripts`
 11. DOM 事件
- 1. 
+ 1. 三种添加事件监听方式
+     1. 行内属性事件：`<div onclick="alert('click')"></div>`
+     2. 属性事件：`mdiv.onclick = () => alert('click')`
+     3. `addEventListener`：`mdiv.addEventListener('click',() => alert('click'), false)`（回调函数的 `this` 自动绑定到该元素，并且支持绑定多个回调）
+     4. IE `attachEvent` 不支持捕获阶段。
+ 2. 事件类型
+     1. `UIEvent`
+         - `load`、`onload`、`abort`、`error` 资源加载相关
+         - `resize`、`scroll` 窗口尺寸相关
+         - `context menu` 右键菜单
+     2. `FocusEvent`
+         - `blur`、`focus`、`focusin`、`focusout` 
+     3. `FormEvent`
+         - `change`、`reset`、`submit`、`select` 
+     4. `MouseEvent`
+         - `click`、`dbclick`
+         - `mousedown`、`mouseup`
+         - `mouseenter`、`mouseout` 不冒泡
+         - `mouseleave`、`mouseover` 冒泡
+         - `mousemove`
+     5. `WheelEvent`
+         - 浏览器里用的是 `mousewheel` 规范用的是 `wheel` 
+     6. `KeyboardEvent`
+         - `keydown`、`keyup`、`keypress` 
+     7. `TouchEvent` 
+         - `touchstart`、`touchend`
+         - `touchmove`、`touchcancel`
+         - `touchenter`、`touchleave`
+     8. 拖拽相关
+         - `drag`、`dragover`、`drop`
+         - `dragstart`、`dragend`
+         - `dragenter`、`dragleave`
+     9. 文档相关
+         - `readystatechange`
+         - `DOMContentLoaded` 
+     10. 其它
+         - `afterprint`、`beforeprint`
+         - `beforeupload`
+         - `hashchange`
+         - `message`
+         - `offline`、`online`
+         - `pagehide`、`pageshow`
+ 3. 移除事件监听
+     1. `removeEventListener` 只支持通过函数引用添加的事件监听函数。 
+     2. IE `detachEvent`。
+ 4. [事件捕获和冒泡](./lib/event.html)
+     1. `addEventListener` 第三个参数为 `true` 则在捕获阶段触发、`false` 则在冒泡阶段触发，默认是 `false`。
+     2. 其他两种事件绑定都是在冒泡时触发的。
+     3. IE `attachEvent` 不支持捕获阶段，也没有第三个参数，都是在冒泡阶段触发。
+     4. 事件对象有个 `eventPhase` 属性，1 表示捕捉阶段、2 表示目标阶段、3 表示冒泡阶段。（在 chrome 中测试居然是 0，有网时待查）
+ 5. 常见事件对象属性
+     1. `target` 和 `currentTarget`，`currentTarget` 是当前活动对象，`target` 是目标对象，只有在目标阶段，两者才是相等的。
+     2. 五个坐标，见[彻底弄清楚几个宽高](./lib/尺寸总结.md) 。
+     3. `stopPropagation`：因为事件可以在各层级的节点中传递, 不管是冒泡还是捕获, 有时我们希望事件在特定节点执行完之后不再传递, 可以使用事件对象的 `stopPropagation` 方法。
+     4. `preventDefault`：元素上带有的功能. 如: 点击 a 链接节点的跳转动作, 点击 submit 按钮表单会提交等，如果监听这些元素的事件时不希望执行默认动作，就可以使用 `preventDefault` 方法。
+     5. `return false`：退出执行, return false 之后的所有触发事件和动作都不会被执行。有时候 `return false` 可以用来替代 `stopPropagation` 和 `preventDefault`，除此之外，还可以返回对象, 跳出循环等。
+     6. `stopImmediatePropagation`：和 `stopPropagation` 区别是这个方法会把绑定在同一个元素的剩下的回调都取消。
+  6. [自定义事件](./lib/ownEvent.html)
+     1. `document.createEvent`
+     2. `initCustomEvent(event,bubble?,cancelable?,event.detail)`
+     3. `fireEvent`（IE） 和 `dispatchEvent`
+     4. IE9 里 `initCustomEvent` 需要第四个参数。
+     5. DOM4 里面添加了 `CustomEvent`。
+ 7. [模拟出发鼠标事件](./lib/simulateEvent.html)
+     1. 类似 `jQuery.trigger()` 方法。
+     2. 借助 `initMouseEvent` 来实现。
+ 8. 事件委托
+     1. 事件委托是借助事件冒泡机制，用父级元素来统一管理子级的相同事件。
+     2. 原理是不管是哪个子级触发的相同事件，都可以通过 `event.target` 拿到这个子级元素，然后对其做相应的操作，因为操作逻辑是一样的，因此可以在父级中复用逻辑。
+     3. 在处理 `click`、`mousedown`、`mouseup`、`keydown`、`keyup`、`keypress` 等事件时十分有效。

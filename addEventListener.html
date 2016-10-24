@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>addEventListener</title>
+</head>
+<body>
+	<div>click</div>
+	<script>
+		let div = document.querySelector('div')
+		div.addEventListener('click', () => { console.log('click1') })
+		div.addEventListener('click', () => { console.log('click2') })
+	</script>
+</body>
+</html>

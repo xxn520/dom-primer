@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ownEvent</title>
+</head>
+<body>
+	<div>boom</div>
+
+	<script>
+		let div = document.querySelector('div')
+		let boom = document.createEvent('CustomEvent')
+
+		boom.initCustomEvent('boom', true, false, { boom: true })
+
+		div.addEventListener('boom', (e) => alert(e.detail.boom), false)
+
+		div.dispatchEvent(boom)
+	</script>
+</body>
+</html>

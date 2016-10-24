@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>simulateEvent</title>
+</head>
+<body>
+	<div>自动触发</div>
+
+	<script>
+		let div = document.querySelector('div') 
+		let simulateClick = document.createEvent('MouseEvent')
+
+		div.addEventListener('click', () => alert('模拟点击'))
+
+		simulateClick.initMouseEvent('click', true, true, document.defaultView, 0,0,0,0,0,false,false,false,0,null,null)
+		div.dispatchEvent(simulateClick)
+	</script>
+</body>
+</html>
