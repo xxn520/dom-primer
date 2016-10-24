@@ -169,10 +169,10 @@
        6. `Element.prototype.clientHeight` 不包括边框
        7. `Element.prototype.scrollWidth` [滚动元素](./lib/scrollElement.html)
        8. `Element.prototype.scrollHeight` [滚动元素](./lib/scrollElement.html)
-     5. [彻底弄清楚几个宽高](https://m2mbob.cn/) 
-     6. 特定点上最顶层元素
+       9. [彻底弄清楚几个宽高](https://m2mbob.cn/) 
+     5. 特定点上最顶层元素
        1. `document.elementFromPoint`
-     7. [滚动元素到视区](./scrollIntoView.html)
+     6. [滚动元素到视区](./scrollIntoView.html)
        1. `Element.prototype.scrollIntoView`
        2. `Element.prototype.scrollIntoViewIfNeeded`
 6. 元素节点内联样式
