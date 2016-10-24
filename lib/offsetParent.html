@@ -5,11 +5,12 @@
 	<title>offsetParent</title>
 </head>
 <style>
-	body { margin: 0; }
+	html { margin: 20px; }
+	body { margin: 10px; }
 	#blue { height: 100px; width: 100px; background-color: blue; border: 10px solid gray; padding: 25px; margin: 25px; }
 	#red { height: 50px; width: 50px; background-color: red; border: 10px solid gray; }
 	#green { height: 100px; width: 100px; background-color: green; border: 10px solid gray; padding: 25px; margin: 25px; position: absolute; }
-	#yellow { height: 50px; width: 50px; background-color: yellow; border: 10px solid gray; }
+	#yellow { height: 50px; width: 50px; background-color: yellow; border: 10px solid gray; padding: 30px; margin: 20px;}
 </style>
 <body>
 	<div id="blue">
@@ -25,7 +26,8 @@
 		// offsetParent 如何确定？
 		// 最近的不为 static 的祖先元素。
 		// 如果查询过程中未 table、th、td，那么即使定位值是 static，它将成为 offsetParent 的值。
-		// 偏移是根据 offsetParent 的内容区域来算的，但是对于 body 会加上外边距和边框	
+		// 如果没有已定位的父级元素，那么会以 html 为标准进行计算	
+		// 偏移是根据 offsetParent 的内容区域来算的	
 		// 注意垂直方向上的 margin 会合并，可以用 bfc 或 IE 下 haslayout 来阻止
 		let red = document.getElementById('red')
 

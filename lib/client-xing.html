@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>client-xing</title>
+</head>
+<style>
+	body {
+		height: 350px;
+		width: 500px;
+		padding: 40px;
+		margin: 10px;
+		border: 20px solid gray;
+		background-color: red;
+		overflow: scroll;
+	}
+	div {
+		width: 200px;
+		height: 200px;
+		background-color: blue;
+		border: 1px solid gray;
+		overflow: auto;
+	}
+</style>
+<body>
+	<div></div>
+	<script>
+		console.log(document.body.clientHeight)	// 430
+		console.log(document.body.clientWidth)	// 580
+
+		console.log(document.querySelector('div').clientHeight)	// 200
+		console.log(document.querySelector('div').clientWidth)	// mac 下 200，windows 下 183
+	</script>
+</body>
+</html>

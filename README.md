@@ -160,7 +160,7 @@
      3. [相对视区的偏移](./lib/getBoundingClientRect.html)
        1. `Element.prototype.getBoundingClientRect`
        2. `Element.prototype.getClientRects`
-     4. [元素在视图中的尺寸](./lib/elementSize.html)
+     4. [元素在视图中的尺寸](./lib/elementSize.html) 
        1. `HTMLElement.prototype.offsetHeight` 包括边框
        2. `HTMLElement.prototype.offsetWidth` 包括边框
        3. `Element.prototype.getBoundingClientRect().width` 包括边框
@@ -169,25 +169,12 @@
        6. `Element.prototype.clientHeight` 不包括边框
        7. `Element.prototype.scrollWidth` [滚动元素](./lib/scrollElement.html)
        8. `Element.prototype.scrollHeight` [滚动元素](./lib/scrollElement.html)
-     5. 特定点上最顶层元素
+     5. [彻底弄清楚几个宽高](https://m2mbob.cn/) 
+     6. 特定点上最顶层元素
        1. `document.elementFromPoint`
-     6. [滚动元素到视区](./scrollIntoView.html)
+     7. [滚动元素到视区](./scrollIntoView.html)
        1. `Element.prototype.scrollIntoView`
        2. `Element.prototype.scrollIntoViewIfNeeded`
-     7. 获取文档/窗口大小 
-       1. `document.body.offsetWidth` body 的宽含边框
-       2. `document.body.offsetHeight` body 的高含边框
-       3. `document.body.clientWidth` body 的宽不含边框
-       4. `document.body.clientHeight` body 的高不含边框
-       5. `document.body.scrollWidth`
-       6. `document.body.scrollHeight`
-       7. `document.documentElement.offsetWidth` 文档的宽
-       8. `document.documentElement.offsetHeight` 文档的高
-       9. `document.documentElement.clientWidth` 视口的宽
-       10. `document.documentElement.clientHeight` 视口的高
-       11. `document.documentElement.scrollWidth` 文档的宽
-       12. `document.documentElement.scrollHeight` 文档的高
-       13. body 没有设置宽高的情况下，宽高为视口的宽高；设置了宽高则就是设置的宽高。没有设置宽高 `document.body.scrollWidth` 和 `document.body.offsetHeight` 为视口和内部元素宽高的大者。
 6. 元素节点内联样式
  1. 获取[内联样式](./lib/elementStyle.html)
      1. `HTMLElement.prototype.style`  得到 `CSSStyleDeclaration`
@@ -287,4 +274,5 @@
      2. IE 6-9 下没有，解决方案待查。
  5. 获取所有脚本
      1. `document.scripts`
-11. DOM 事件 
+11. DOM 事件
+ 1. 
