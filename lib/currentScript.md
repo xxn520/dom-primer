@@ -89,3 +89,9 @@ function getCurrentScript() {
 
 如果需要更高的鲁棒性，那么必须使用第二种思路，因为在fireFox 4-、IE 11 下是没有 `readyState` 的，所以 IE 11、fireFox 4- 只能够使用第二种方案来进行兼容。
 
+#### 参考资料
+
+1. [getCurrentScript的改进](http://www.cnblogs.com/rubylouvre/archive/2013/01/23/2872618.html)
+2. [mdn readyState](https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState)
+3. [mdn currentScript](https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript)
+
