@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>stack</title>
+	<script>
+		function getCurrentScript() {
+		      //取得正在解析的script节点
+		      // if(document.currentScript) { //firefox 4+
+		      //     return document.currentScript.src;
+		      // }
+		      var stack, e, nodes = document.head.getElementsByTagName("script"); //只在head标签中寻找
+		      //  参考 https://github.com/samyk/jiagra/blob/master/jiagra.js
+		      try {
+		          a.b.c(); //强制报错,以便捕获e.stack
+		      } catch(e) {
+		          stack = e.stack;
+		          console.log(stack)
+		      }
+		      if(stack) {
+		          // chrome IE10使用 at, firefox opera 使用 @
+		          e = stack.indexOf(' at ') !== -1 ? ' at ' : '@';
+		          while(stack.indexOf(e) !== -1) {
+		              stack = stack.substring(stack.indexOf(e) + e.length);
+		          }
+		          return stack.replace(/:\d+:\d+$/ig, "");
+		      }
+		      for(i = 0; node = nodes[i++];) {
+		          if( node.readyState === "interactive") {
+		              return node.className = node.src;
+		          }
+		      }
+		  }
+	</script>
+	<script src="./stack.js"></script>
+</head>
+<body>
+</body>
+</html>

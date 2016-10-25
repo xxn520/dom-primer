@@ -271,7 +271,7 @@
      2. 而对于 IE 8 及以下的浏览器，`Node` 不支持 `onload` 事件，所以使用 `onreadystatechange` 来代替。
  4. 获取当前执行的脚本
      1. `document.currentScript`
-     2. IE 6-9 下没有，解决方案待查。
+     2. IE 6-9 下没有这个属性，[兼容 IE 的方案](./lib/currentScript.md)。
  5. 获取所有脚本
      1. `document.scripts`
 11. DOM 事件
@@ -324,7 +324,6 @@
      1. `addEventListener` 第三个参数为 `true` 则在捕获阶段触发、`false` 则在冒泡阶段触发，默认是 `false`。
      2. 其他两种事件绑定都是在冒泡时触发的。
      3. IE `attachEvent` 不支持捕获阶段，也没有第三个参数，都是在冒泡阶段触发。
-     4. 事件对象有个 `eventPhase` 属性，1 表示捕捉阶段、2 表示目标阶段、3 表示冒泡阶段。（在 chrome 中测试居然是 0，有网时待查）
  5. 常见事件对象属性
      1. `target` 和 `currentTarget`，`currentTarget` 是当前活动对象，`target` 是目标对象，只有在目标阶段，两者才是相等的。
      2. 五个坐标，见[彻底弄清楚几个宽高](./lib/尺寸总结.md) 。
@@ -332,6 +331,8 @@
      4. `preventDefault`：元素上带有的功能. 如: 点击 a 链接节点的跳转动作, 点击 submit 按钮表单会提交等，如果监听这些元素的事件时不希望执行默认动作，就可以使用 `preventDefault` 方法。
      5. `return false`：退出执行, return false 之后的所有触发事件和动作都不会被执行。有时候 `return false` 可以用来替代 `stopPropagation` 和 `preventDefault`，除此之外，还可以返回对象, 跳出循环等。
      6. `stopImmediatePropagation`：和 `stopPropagation` 区别是这个方法会把绑定在同一个元素的剩下的回调都取消。
+     7. `eventPhase` 属性，0 表示不在事件中，1 表示捕捉阶段、2 表示目标阶段、3 表示冒泡阶段。
+     8. 需要注意的是 `event` 是实时的，也就是说在 `console` 输出的 `event` 已经不是当时的那个 `event`了。
   6. [自定义事件](./lib/ownEvent.html)
      1. `document.createEvent`
      2. `initCustomEvent(event,bubble?,cancelable?,event.detail)`
