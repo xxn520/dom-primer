@@ -59,15 +59,18 @@ function getCurrentScript() {
         }
   	}
   	if(stack) {
-      	// chrome IE 使用 at, firefox opera 使用 @
-      	// IE 最后一行与其他浏览器不同，需要转换思路去掉杂质
-      	e = stack.indexOf(' at ') !== -1 ? ' at ' : '@'
-      	// 从错误栈中获取当前 script 的地址
-      	stack = stack.split( /[@ ]/g).pop()
-      	// 取得最后一行,最后一个空格或@之后的部分
-       stack = stack[0] == "(" ? stack.slice(1,-1) : stack
-       return stack.replace(/(:\d+)?:\d+$/i, "")
-       //去掉行号与或许存在的出错字符起始位置
+        // e.stack最后一行在所有支持的浏览器大致如下:
+        // chrome23:
+        //  at http://113.93.50.63/data.js:4:1
+        // firefox17:
+        //  @http://113.93.50.63/query.js:4
+        // opera12:
+        //  @http://113.93.50.63/data.js:4
+        // IE10:
+        //  at Global code (http://113.93.50.63/data.js:4:1)
+        stack = stack.split( /[@ ]/g).pop(); // 取得最后一行,最后一个空格或@之后的部分
+        stack = stack[0] == "(" ? stack.slice(1,-1) : stack;
+        return stack.replace(/(:\d+)?:\d+$/i, ""); // 去掉行号与或许存在的出错字符起始位置
   	}
   	// 如果 a.b.c(); 奇迹般地存在没有报错，那么退回第一种方案
   	// 否则的话遍历所有 head 中的 script 标签
