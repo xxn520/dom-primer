@@ -49,7 +49,7 @@
      	 3. `Node.prototype.lastNode`
      	 4. `Node.prototype.nextSibling`
      	 5. `Node.prototype.perviosSibling`
-     2. 元素
+     2. 元素（IE 9 才支持，因此 jQuery 利用上面的节点遍历相关属性模拟了下面的属性）
          1. `Element.prototype.fristElementChild`
          2. `Element.prototype.lastElementChild`
          3. `Element.prototype.nextElementChild`

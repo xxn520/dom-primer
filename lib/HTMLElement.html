@@ -5,9 +5,12 @@
 	<title>HTMLElement</title>
 </head>
 <body>
-	<a id="a"></a>
+	<form action="">
+		<input type="text">
+	</form>
 	<script>
-		let node = document.getElementById('a')
+		let node = document.querySelector('input')
+		let form = document.querySelector('form')
 		console.log(node.constructor)
 		console.log('------------Node.prototype-------------')
 		for (let key in Node.prototype) {
@@ -25,10 +28,16 @@
 				console.log(`${key} = ${node[key]}`)
 			}
 		}
-		console.log('------------HTMLAnchorElement.prototype-------------')
-		for (let key in HTMLAnchorElement.prototype) {
+		console.log('------------HTMLInputElement.prototype-------------')
+		for (let key in HTMLInputElement.prototype) {
 			if (!(key in HTMLElement.prototype)) {
 				console.log(`${key} = ${node[key]}`)
+			}
+		}
+		console.log('------------HTMLFormElement.prototype-------------')
+		for (let key in HTMLFormElement.prototype) {
+			if (!(key in HTMLElement.prototype)) {
+				console.log(`${key} = ${form[key]}`)
 			}
 		}
 	</script>
